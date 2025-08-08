@@ -11,5 +11,7 @@ export const authOptions: NextAuthOptions = {
   ],
 };
 
+// This is the actual route handler function (very important!)
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };
