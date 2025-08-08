@@ -2,7 +2,8 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { NextAuthOptions } from "next-auth";
 
-export const authOptions: NextAuthOptions = {
+// ✅ Define options without exporting
+const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -11,7 +12,8 @@ export const authOptions: NextAuthOptions = {
   ],
 };
 
-// This is the actual route handler function (very important!)
+// ✅ Route handler
 const handler = NextAuth(authOptions);
 
+// ✅ Export the handler correctly
 export { handler as GET, handler as POST };
