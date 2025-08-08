@@ -1,6 +1,5 @@
-import { GoogleProvider } from "next-auth/providers/google";
-import { NextAuthOptions } from "next-auth";
-import { Session } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import { NextAuthOptions, Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
 
 export const authOptions: NextAuthOptions = {
@@ -15,7 +14,9 @@ export const authOptions: NextAuthOptions = {
     signOut: "/login",
   },
   callbacks: {
-    async session({ session, token }: { session: Session; token: JWT }) {
+    async session(
+      { session, token }: { session: Session; token: JWT }
+    ): Promise<Session> {
       session.user.id = token.sub as string;
       return session;
     },

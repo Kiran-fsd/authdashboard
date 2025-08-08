@@ -55,7 +55,7 @@ export default function HomePage() {
 
           {/* Google Sign-In Button */}
           <button
-            onClick={() => signIn('google')}
+            onClick={() => signIn('google', { callbackUrl: '/dashboard'})}
             className="w-full flex items-center justify-center border border-gray-300 py-3 rounded-md hover:bg-gray-100"
           >
             <Image
